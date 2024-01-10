@@ -1,0 +1,1 @@
+This file represents a Python virtual environment that would be created with `python -m venv` command.

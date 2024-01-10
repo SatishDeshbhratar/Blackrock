@@ -1,0 +1,61 @@
+openapi: 3.0.0
+info:
+  title: Simulation API
+  version: 1.0.0
+paths:
+  /simulate:
+    post:
+      summary: Run the simulation based on user input
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                x0:
+                  type: number
+                  example: 1.0
+                y0:
+                  type: number
+                  example: 1.0
+                z0:
+                  type: number
+                  example: 1.0
+                sigma:
+                  type: number
+                  example: 10.0
+                rho:
+                  type: number
+                  example: 28.0
+                beta:
+                  type: number
+                  example: 2.6667
+                delta_t:
+                  type: number
+                  example: 0.01
+                n:
+                  type: integer
+                  example: 20
+
+      responses:
+        "200":
+          description: Simulation result
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        n:
+                          type: integer
+                        x:
+                          type: number
+                        y:
+                          type: number
+                        z:
+                          type: number
